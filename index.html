@@ -131,6 +131,7 @@
 
         var skidFilter__ = getQueryVariable("contrib") || getQueryVariable("contribs") || getQueryVariable("name");
 
+        if (skidFilter__ == null || skidFilter__ == undefined || /\s/.test(skidFilter__)) return;
         if (skidFilter__) {
             document.getElementById("SkidFilter").value = skidFilter__
             var xhttp = new XMLHttpRequest();
