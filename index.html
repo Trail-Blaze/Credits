@@ -140,7 +140,7 @@
 
 
             if (xhttp.readyState == 4 && xhttp.status == 200) {
-                var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.startsWith(skidFilter__) || x.tag.startsWith(skidFilter__.toUpperCase()) || x.tag.startsWith(skidFilter__.toLocaleLowerCase()))
+                var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.toUpperCase().includes(skidFilter__.toUpperCase()));
                 if (!FilteredSkids[0]) {
                     var NoResult = document.createElement('p');
                     NoResult.innerText = "Found No Result."
