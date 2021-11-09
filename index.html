@@ -154,7 +154,7 @@
           /\s/.test(skidFilter__)
         )
           return;
-        if (skidFilter__) {
+        else {
           document.getElementById("SkidFilter").value = skidFilter__;
           var xhttp = new XMLHttpRequest();
 
@@ -185,7 +185,8 @@
           } else {
             alert(xhttp.status + " " + xhttp.statusText);
           }
-        } else if (getQueryVariable("skidId")) {
+        } 
+        if (getQueryVariable("skidId")) {
           var xhttp = new XMLHttpRequest();
 
           xhttp.open(
