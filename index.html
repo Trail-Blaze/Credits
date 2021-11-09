@@ -127,10 +127,10 @@
             document.getElementById("ShowIdthing").checked = true;
         }
 
-        var skidFiter = getQueryVariable("skid") || getQueryVariable("skids") || getQueryVariable("name");
+        var skidFilter__ = getQueryVariable("contrib") || getQueryVariable("contribs") || getQueryVariable("name");
 
-        if (skidFiter) {
-            document.getElementById("SkidFilter").value = skidFiter
+        if (skidFilter__) {
+            document.getElementById("SkidFilter").value = skidFilter__
             var xhttp = new XMLHttpRequest();
 
             xhttp.open("GET", "https://raw.githubusercontent.com/trail-blaze/credits/main/credits.json", false);
@@ -138,10 +138,10 @@
 
 
             if (xhttp.readyState == 4 && xhttp.status == 200) {
-                var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.startsWith(skidFiter) || x.tag.startsWith(skidFiter.toUpperCase()) || x.tag.startsWith(skidFiter.toLocaleLowerCase()))
+                var FilteredSkids = JSON.parse(xhttp.responseText).filter(x => x.tag.startsWith(skidFilter__) || x.tag.startsWith(skidFilter__.toUpperCase()) || x.tag.startsWith(skidFilter__.toLocaleLowerCase()))
                 if (!FilteredSkids[0]) {
                     var NoResult = document.createElement('p');
-                    NoResult.innerText = "Found no result"
+                    NoResult.innerText = "Found No Result."
                     document.getElementById('skids').appendChild(document.createElement('br'))
                     document.getElementById('skids').appendChild(document.createElement('br'))
 
