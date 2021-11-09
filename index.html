@@ -165,9 +165,10 @@
           skidFilter__ === null ||
           skidFilter__ === undefined ||
           /\s/.test(skidFilter__)
-        )
+        ) {
+          stat();
           return;
-        else {
+        } else {
           document.getElementById("SkidFilter").value = skidFilter__;
           var xhttp = new XMLHttpRequest();
 
@@ -233,13 +234,15 @@
           } else {
             alert(xhttp.status + " " + xhttp.statusText);
           }
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-              MakeSkids(JSON.parse(xhttp.responseText));
-            }
-          };
         }
+      }
+      function stat() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            MakeSkids(JSON.parse(xhttp.responseText));
+          }
+        };
 
         xhttp.open(
           "GET",
