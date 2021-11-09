@@ -147,7 +147,12 @@
             getQueryVariable("contribs") ||
             getQueryVariable("name");
 
-         if (
+
+            stat();
+            stat1();
+
+       function stat1(){
+            if (
             skidFilter__ == null ||
             skidFilter__ == undefined ||
             /\s/.test(skidFilter__)
@@ -215,13 +220,16 @@
             } else {
                alert(xhttp.status + " " + xhttp.statusText);
             }
-         } else {
+         } 
+      }
+         function stat(){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                if (this.readyState == 4 && this.status == 200) {
                   MakeSkids(JSON.parse(xhttp.responseText));
                }
-            };
+            }
+            
             xhttp.open(
                "GET",
                "https://raw.githubusercontent.com/trail-blaze/credits/main/credits.json",
