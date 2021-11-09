@@ -46,6 +46,20 @@
          border-radius: 4px;
       }
 
+      .pepega__result {
+         background-color: rgb(44, 47, 51);
+         border: none;
+         color: white;
+         width: 300px;
+         padding: 20px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 19px;
+         margin: 9px 15px;
+         border-radius: 4px;
+      }
+
       SkidUserName {
          font-family: Arial, Helvetica, sans-serif;
       }
@@ -103,7 +117,7 @@
       function MakeSkids(array) {
         array.forEach((element) => {
           var skidprofile = document.createElement("div");
-          skidprofile.classList.add("pepega");
+          skidprofile.classList.add("pepega__result");
           skidprofile.id = element.uid;
           var SkidPFP = document.createElement("img");
           if (element.avatar != null) {
@@ -167,7 +181,7 @@
 
           if (xhttp.readyState == 4 && xhttp.status == 200) {
             var FilteredSkids = JSON.parse(xhttp.responseText).filter((x) =>
-              x.tag.toUpperCase().includes(skidFilter__.toUpperCase())
+              x.tag.toString().toUpperCase().includes(skidFilter__.toString().toUpperCase())
             );
             if (!FilteredSkids[0]) {
               var NoResult = document.createElement("p");
