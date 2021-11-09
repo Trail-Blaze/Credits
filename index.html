@@ -117,7 +117,7 @@
       function MakeSkids(array) {
         array.forEach((element) => {
           var skidprofile = document.createElement("div");
-          skidprofile.classList.add("pepega__result");
+          skidprofile.classList.add("pepega");
           skidprofile.id = element.uid;
           var SkidPFP = document.createElement("img");
           if (element.avatar != null) {
@@ -181,7 +181,10 @@
 
           if (xhttp.readyState == 4 && xhttp.status == 200) {
             var FilteredSkids = JSON.parse(xhttp.responseText).filter((x) =>
-              x.tag.toString().toUpperCase().includes(skidFilter__.toString().toUpperCase())
+              x.tag
+                .toString()
+                .toUpperCase()
+                .includes(skidFilter__.toString().toUpperCase())
             );
             if (!FilteredSkids[0]) {
               var NoResult = document.createElement("p");
@@ -199,7 +202,7 @@
           } else {
             alert(xhttp.status + " " + xhttp.statusText);
           }
-        } 
+        }
         if (getQueryVariable("skidId")) {
           var xhttp = new XMLHttpRequest();
 
@@ -231,15 +234,13 @@
           } else {
             alert(xhttp.status + " " + xhttp.statusText);
           }
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+              MakeSkids(JSON.parse(xhttp.responseText));
+            }
+          };
         }
-      }
-      function stat() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-          if (this.readyState == 4 && this.status == 200) {
-            MakeSkids(JSON.parse(xhttp.responseText));
-          }
-        };
 
         xhttp.open(
           "GET",
