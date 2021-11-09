@@ -102,7 +102,9 @@
     </div>
 
     <script defer>
-   setInterval(function(){   document.getElementById("SkidFilter").focus();}, 200);
+      setInterval(function () {
+        document.getElementById("SkidFilter").focus();
+      }, 100);
       function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
@@ -256,7 +258,7 @@
       function submitForm(inputForm) {
         setTimeout(function () {
           inputForm.submit();
-        }, 500); //wait 1500 milliseconds
+        }, 550); //wait 550 milliseconds
       }
     </script>
   </body>
