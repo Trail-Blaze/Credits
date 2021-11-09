@@ -74,7 +74,7 @@
     <div id="skids">
       <h2 class="arial">Blaze Credits</h2>
       <p><a href="https://trail-blaze.github.io">Go Back</a> at any time</p>
-      <form onkeyup="submit(this)">
+      <form onkeyup="submitForm(this)">
         <input
           id="SkidFilter"
           type="search"
@@ -234,10 +234,10 @@
         xhttp.send();
       }
 
-      function submit(inputForm) {
+      function submitForm(inputForm) {
         setTimeout(function () {
           inputForm.submit();
-        }, 2000);
+        }, 2000); //wait 2 seconds
       }
     </script>
   </body>
